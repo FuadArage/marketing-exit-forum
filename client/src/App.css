@@ -1,0 +1,18 @@
+h1,
+h2,
+h3 {
+  color: #00ced1; /* Aqua accent */
+}
+
+a {
+  color: #1a1a40;
+  /text-decoration: none;
+}
+
+a:hover {
+  color: #1a1a40;
+}
+
+*button {
+  color: #1a1a40;
+}

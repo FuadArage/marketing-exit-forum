@@ -1,0 +1,127 @@
+.vote_container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vote_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 8px;
+  margin-top: 20px;
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s, box-shadow 0.2s;
+  font-size: 16px;
+  line-height: 1;
+  outline: none;
+}
+
+.vote_button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(0, 121, 211, 0.25);
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.22);
+  color: #0079d3;
+}
+
+.vote_button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.18);
+}
+
+.icon {
+  font-size: 20px;
+}
+
+.upvote_button {
+  gap: 6px;
+  padding-right: 18px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.upvote_text {
+  font-weight: 600;
+}
+
+.vote_count {
+  font-weight: 600;
+  margin-left: 8px;
+  color: #222;
+  font-size: 15px;
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.3);
+}
+
+.downvote_button {
+  padding: 5px 8px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.18);
+}
+
+.upvoted {
+  background: rgba(0, 121, 211, 0.18);
+  color: #0079d3;
+  border-color: rgba(0, 121, 211, 0.35);
+  box-shadow: 0 4px 24px 0 rgba(0, 121, 211, 0.1);
+}
+
+.upvoted .icon,
+.upvoted .upvote_text,
+.upvoted .vote_count {
+  color: #1e3a5f;
+}
+
+.upvoted:hover {
+  background: rgba(0, 121, 211, 0.28);
+  border-color: rgba(0, 121, 211, 0.55);
+}
+
+.downvoted {
+  background: rgba(255, 69, 0, 0.13);
+  color: #ff4500;
+  border-color: rgba(255, 69, 0, 0.25);
+  box-shadow: 0 4px 24px 0 rgba(255, 69, 0, 0.1);
+}
+
+.downvoted .icon {
+  color: #ff4500;
+}
+
+.downvoted:hover {
+  background: rgba(255, 69, 0, 0.22);
+  border-color: rgba(255, 69, 0, 0.45);
+}
+
+@media (max-width: 600px) {
+  .vote_container {
+    gap: 2px;
+  }
+  .vote_button {
+    padding: 4px 6px;
+    font-size: 13px;
+    border-radius: 12px;
+    min-width: 36px;
+  }
+  .icon {
+    font-size: 16px;
+    margin-right: 2px;
+  }
+  .upvote_button {
+    padding-right: 8px;
+  }
+  .downvote_button {
+    padding: 4px 6px;
+  }
+  .vote_count {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+}

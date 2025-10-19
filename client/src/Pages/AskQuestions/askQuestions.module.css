@@ -1,0 +1,134 @@
+.outer__container {
+  padding: 5px;
+}
+.steps__container {
+  margin: 3% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.lists {
+  width: auto;
+}
+.lists ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.question__container {
+  background-color: #ffffff;
+  box-shadow: 10px 10px 10px 10px rgb(252, 250, 250);
+  border-radius: 20px;
+  width: 70%;
+  margin: 50px auto;
+  padding: 30px 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 20px;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: rgb(156, 156, 156);
+}
+.askform {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+::placeholder {
+  text-align: start;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid rgb(156, 156, 156);
+  padding: 20px !important;
+  font-size: 18px;
+}
+
+textarea {
+  height: 200px;
+  border-radius: 10px;
+}
+
+input {
+  border-radius: 10px;
+  height: 50px;
+  margin: 5px 0;
+}
+
+.askBtn {
+  border: none;
+  background-color: #1a1a40;
+  color: var(--white);
+  height: 4rem;
+  border-radius: 5px;
+  margin: 2% 0;
+  padding: 0px 20px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.askBtn:hover {
+  background-color: var(--accent);
+}
+
+.success__msg {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background-color: #e6ffed;
+  border: 2px solid var(--success);
+  border-radius: 20px;
+  text-align: center;
+  color: var(--success);
+  font-weight: 600;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 8px rgba(46, 204, 113, 0.3);
+}
+
+.thanks_note {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.nav_to {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 25px;
+  color: #fff;
+  background-color: var(--primary);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.nav_to:hover {
+  background-color: var(--accent);
+}
+
+/* For tablets and phones (max-width 768px) */
+@media (max-width: 768px) {
+  .question__container {
+    width: 80%;
+  }
+  .steps__container {
+    font-size: 2rem;
+  }
+}
+
+/* For phones (max-width 576px) */
+@media (max-width: 576px) {
+  .question__container {
+    width: 100%;
+  }
+  .steps__container {
+    font-size: 1.5rem;
+  }
+}

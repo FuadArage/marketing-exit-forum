@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary: #00CED1;/* Primary Orange - main brand color, buttons, links, active elements */
+  --primary-blue: #212529; /* Primary Blue - used for submit/post actions */
+  --dark-bg: #3A4559; /* Dark Background - footers */
+  --white: #ffffff; /* Clean White - main content background */
+  --light-bg: #fbfbfb; /* Light Background - subtle contrast for content areas */
+  --success: #28a745; /* Success Green - positive actions, notifications */
+  --error: #dc3545; /* Error Red - error messages, alerts */
+  --border: #dee2e6; /* Border/Light Gray - form borders, dividers */
+  --text-dark: #212529; /* Text Primary - headings, body text */
+  --text-gray: #6c757d; /* Text Secondary - placeholder, metadata */
+  --accent:  #1A1A40; /* Accent lighter version of our primary color Orange - highlights, links, important elements */
+  --landing-bg: #f5f5f5; /* landing page */
+
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 62.5%; /* 1rem = 10px if browser default is 16px */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  outline: none;
+}
+
+body {
+  font-size: 16px;
+  color: var(--text-dark);
+  overflow-x: hidden;
+  /* max-width: 100%; */
+  overflow-x: hidden;
+}
