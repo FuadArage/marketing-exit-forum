@@ -4,10 +4,8 @@
   "description": "This guide will help you get the project up and running smoothly on your local machine. Follow these steps to start contributing or testing the backend API.",
   "main": "app.js",
   "scripts": {
-  "start": "concurrently \"npm run server\" \"npm run client\"",
-  "server": "node app.js",
-  "client": "cd client && npm start",
-  "test": "echo \"Error: no test specified\" && exit 1"
+  "start": "node app.js",
+  "dev": "nodemon app.js"
 },
   "author": "fuad",
   "license": "ISC",
