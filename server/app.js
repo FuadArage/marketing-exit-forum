@@ -12,7 +12,10 @@ const app = express();
 // middlewares
 app.use(
   cors({
-    origin: ["http://localhost:4321", "http://localhost:5173"],
+    origin: (origin, callback) => {
+      // ✅ Allow all origins dynamically
+      callback(null, true);
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
