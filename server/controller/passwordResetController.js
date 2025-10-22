@@ -5,6 +5,7 @@ const dbConnection = require("../db/db.Config");
 // const { sendPasswordResetEmail } = require("../services/mailer");
 const { sendPasswordResetEmail } = require("../services/emailService");
 
+
 // Controller: Send password reset link
 const forgotPassword = async (req, res) => {
   const { email } = req.body;
