@@ -2,9 +2,6 @@ const crypto = require("crypto");
 const bcrypt = require("bcrypt");
 const { StatusCodes } = require("http-status-codes");
 const dbConnection = require("../db/db.Config");
-// const { sendPasswordResetEmail } = require("../services/mailer");
-const { sendPasswordResetEmail } = require("../services/emailService");
-
 
 // Controller: Send password reset link
 const forgotPassword = async (req, res) => {
@@ -22,7 +19,6 @@ const forgotPassword = async (req, res) => {
       [email]
     );
 
-    // Security best practice: respond the same either way
     if (userResult.length === 0) {
       return res.status(StatusCodes.OK).json({
         success: true,
@@ -44,13 +40,13 @@ const forgotPassword = async (req, res) => {
       [user.user_id, hashedToken, expiresAt]
     );
 
-    // 4️⃣ Send the email via our new Marketing Forum mailer
+    // 4️⃣ Return reset URL in response (instead of sending email)
     const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
-    await sendPasswordResetEmail(email, user.user_name, resetUrl);
 
     res.status(StatusCodes.OK).json({
       success: true,
-      message: "Password reset link has been sent to your email.",
+      resetUrl,
+      message: "Password reset token generated successfully.",
     });
   } catch (error) {
     console.error("Forgot Password Error:", error);
@@ -68,11 +64,12 @@ const verifyResetToken = async (req, res) => {
       "SELECT * FROM password_reset_tokens WHERE expires_at > NOW()"
     );
 
-    // Manually compare tokens using bcrypt
     let valid = false;
+    let user_id;
     for (const row of tokenResult) {
       if (await bcrypt.compare(token, row.token)) {
         valid = true;
+        user_id = row.user_id;
         break;
       }
     }
@@ -84,7 +81,7 @@ const verifyResetToken = async (req, res) => {
       });
     }
 
-    res.status(StatusCodes.OK).json({ valid: true });
+    res.status(StatusCodes.OK).json({ valid: true, user_id });
   } catch (error) {
     console.error("Verify Token Error:", error);
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
@@ -103,13 +100,6 @@ const resetPassword = async (req, res) => {
       "SELECT * FROM password_reset_tokens WHERE expires_at > NOW()"
     );
 
-    if (tokenResult.length === 0) {
-      return res.status(StatusCodes.BAD_REQUEST).json({
-        message: "Token is invalid or has expired.",
-      });
-    }
-
-    // Validate the token
     let user_id;
     let tokenIsValid = false;
     for (const row of tokenResult) {
@@ -127,16 +117,13 @@ const resetPassword = async (req, res) => {
       });
     }
 
-    // Hash new password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Update user record
     await dbConnection.query(
       "UPDATE registration SET password = ? WHERE user_id = ?",
       [hashedPassword, user_id]
     );
 
-    // Delete used token
     await dbConnection.query(
       "DELETE FROM password_reset_tokens WHERE user_id = ?",
       [user_id]
