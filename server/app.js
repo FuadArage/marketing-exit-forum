@@ -6,7 +6,6 @@ const dotenv = require("dotenv");
 
 // configuring dotenv
 dotenv.config();
-
 const app = express();
 
 // middlewares
@@ -21,6 +20,7 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

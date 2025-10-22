@@ -1,7 +1,8 @@
 const { StatusCodes } = require("http-status-codes");
 const dbconnection = require("../db/db.Config");
-const { sendAnswerNotification } = require("../services/mailer");
+// const { sendAnswerNotification } = require("../services/mailer");
 const xss = require("xss");
+const { sendAnswerNotification } = require("../services/emailService");
 
 async function postAnswer(req, res) {
   const { answer, user_id, question_id } = req.body;

@@ -4,9 +4,9 @@
   "description": "This guide will help you get the project up and running smoothly on your local machine. Follow these steps to start contributing or testing the backend API.",
   "main": "app.js",
   "scripts": {
-  "start": "node app.js",
-  "dev": "nodemon app.js"
-},
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "author": "fuad",
   "license": "ISC",
   "dependencies": {
@@ -19,6 +19,7 @@
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.15.2",
     "nodemailer": "^7.0.9",
+    "resend": "^6.2.2",
     "xss": "^1.0.15"
   }
 }
