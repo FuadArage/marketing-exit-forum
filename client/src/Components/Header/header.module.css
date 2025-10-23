@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 .header_container {
   position: sticky;
   top: 0;
@@ -9,24 +10,20 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: var(--white);
   background-color: #001526;
   border-bottom: 0.5px solid var(--border);
 }
+
 .header {
-  position: sticky;
   width: 100%;
   margin: auto;
   display: flex;
-  text-align: center;
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
-  /* background-color: var(--white); */
-
+  color: var(--white);
   position: relative;
   z-index: 100;
-  color: var(--white);
 }
 
 .logo img {
@@ -36,7 +33,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  gap: 1rem; /* Space between nav links, button, and menu icon */
+  gap: 1rem;
 }
 
 .nav {
@@ -48,7 +45,6 @@
 
 .nav a {
   text-decoration: none;
-  /* color: #333; */
   color: #00ced1;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -71,10 +67,7 @@
 }
 
 .sign_in_btn:hover {
-  border: #1a1a40;
-  color: #00ced1;
-  background-color: #1a1a40;
-  filter: brightness(0.9);
+  filter: brightness(1);
 }
 
 .menu_toggle {
@@ -99,13 +92,12 @@
   background: #00ced1;
   color: #1e3a5f;
   border-radius: 50%;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out,
-    transform 0.3s ease-in-out;
   padding: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 }
 
 .profile_link:hover .profile_icon {
@@ -115,11 +107,14 @@
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.1);
 }
 
+/* ===================== */
 /* === MOBILE STYLES === */
+/* ===================== */
 @media (max-width: 768px) {
   .header {
-    width: 100%;
     padding: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .nav {
@@ -127,15 +122,14 @@
     overflow: hidden;
     max-height: 0;
     flex-direction: column;
-    /* background-color: #fff; */
     background-color: #001526;
     padding: 0;
     border-radius: 0;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     position: absolute;
-    top: 100%; /* directly below the header */
+    top: 100%;
     left: 0;
-    width: 100%; /* FULL width */
+    width: 100%;
     transition: max-height 0.3s ease, padding 0.3s ease;
     z-index: 50;
   }
@@ -144,8 +138,6 @@
     max-height: 500px;
     padding: 1rem;
   }
-
-
 
   .menu_toggle {
     display: block;
@@ -157,5 +149,22 @@
   .sign_in_btn {
     margin: 0.5rem 0;
     text-align: center;
+  }
+
+  /* === Hide Desktop Login, Show beside Logo === */
+  .desktop_login {
+    display: none;
+  }
+
+  .mobile_login_btn {
+    display: block;
+    margin-left: auto;
+  }
+}
+
+/* Desktop: hide mobile login button */
+@media (min-width: 769px) {
+  .mobile_login_btn {
+    display: none;
   }
 }
